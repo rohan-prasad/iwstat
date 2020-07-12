@@ -15,7 +15,8 @@ type IWStat struct {
 	RSSI int
 }
 
-func scan(r io.Reader) ([]IWStat, error) {
+//Scan reads and parses iwinfo
+func Scan(r io.Reader) ([]IWStat, error) {
 
 	s := bufio.NewScanner(r)
 	s.Scan()
