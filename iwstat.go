@@ -10,8 +10,7 @@ import (
 
 //IWStat statistics of associated clients
 type IWStat struct {
-	MAC string
-
+	MAC  string
 	RSSI int
 }
 
@@ -30,7 +29,7 @@ func Scan(r io.Reader) ([]IWStat, error) {
 			continue
 		}
 		var times [20]int
-		for i, idx := range []int{1, 2} {
+		for i, idx := range []int{1: 20} {
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
 				return nil, err

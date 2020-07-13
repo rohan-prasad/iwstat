@@ -1,4 +1,3 @@
-// Command cpustat provides basic Linux CPU utilization statistics.
 package main
 
 import (
@@ -10,21 +9,20 @@ import (
 )
 
 func main() {
-	f, err := os.Open("/Users/rp/iwstat")
+	f, err := os.Open("/home/rohan/iwstat")
 	if err != nil {
-		log.Fatal("Failed to open /Users/rp/iwstat: %v", err)
+		log.Fatalf("Failed to open /home/rohan/iwstat: %v", err)
 	}
 	defer f.Close()
 
 	stats, err := iwstat.Scan(f)
 	if err != nil {
 		log.Fatalf("Failed to scan: %v", err)
-
 	}
-	for _, s := range stats {
-		fmt.Printf("%4s: RSSI: %06d",
-			s.MAC, s.RSSI)
 
+	for _, s := range stats {
+		fmt.Printf("%4s RSSI:%6d\n",
+			s.MAC, s.RSSI)
 	}
 
 }
