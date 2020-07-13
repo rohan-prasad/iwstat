@@ -29,7 +29,7 @@ func Scan(r io.Reader) ([]IWStat, error) {
 			continue
 		}
 		var times [20]int
-		for i, idx := range []int{1: 20} {
+		for i, idx := range []int{1,2} {
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
 				return nil, err
