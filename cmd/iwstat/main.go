@@ -22,7 +22,7 @@ func main() {
 
 	for _, s := range stats {
 		fmt.Printf("%4s RSSI:%6d\n",
-			s.MAC, s.RSSI)
+			s.mac, s.rssi)
 	}
 
 }

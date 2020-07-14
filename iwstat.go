@@ -10,27 +10,27 @@ import (
 
 //IWStat statistics of associated clients
 type IWStat struct {
-	ifname             string
-	mac                string
-	rssi               int
-	snr                int
-	clientInactive     int
-	rxPhy              int
-	rxMbytes           int
-	rxPrr              int
-	rxVhtMcsIndex      int
-	rxVhtMcsMhz        int
-	rxVhtNss           int
-	rxPackets          int
-	txPhy              int
-	txMbytes           int
-	txPrr              int
-	txVhtMcsIndex      int
-	txVhtMcsMhz        int
-	txVhtNss           int
-	txPackets          int
-	expectedThroughput int
-	channelUtlization  int
+	Ifname             string
+	Mac                string
+	Rssi               int
+	Snr                int
+	ClientInactive     int
+	RxPhy              int
+	RxMbytes           int
+	RxPrr              int
+	RxVhtMcsIndex      int
+	RxVhtMcsMhz        int
+	RxVhtNss           int
+	RxPackets          int
+	TxPhy              int
+	TxMbytes           int
+	TxPrr              int
+	TxVhtMcsIndex      int
+	TxVhtMcsMhz        int
+	TxVhtNss           int
+	TxPackets          int
+	ExpectedThroughput int
+	ChannelUtlization  int
 }
 
 //Scan reads and parses iwinfo
@@ -58,27 +58,27 @@ func Scan(r io.Reader) ([]IWStat, error) {
 		}
 
 		stats = append(stats, IWStat{
-			ifname:             fields[0],
-			mac:                fields[1],
-			rssi:               times[0],
-			snr:                times[1],
-			clientInactive:     times[2],
-			rxPhy:              times[3],
-			rxMbytes:           times[4],
-			rxPrr:              times[5],
-			rxVhtMcsIndex:      times[6],
-			rxVhtMcsMhz:        times[7],
-			rxVhtNss:           times[8],
-			rxPackets:          times[9],
-			txPhy:              times[10],
-			txMbytes:           times[11],
-			txPrr:              times[12],
-			txVhtMcsIndex:      times[13],
-			txVhtMcsMhz:        times[14],
-			txVhtNss:           times[15],
-			txPackets:          times[16],
-			expectedThroughput: times[17],
-			channelUtlization:  times[18],
+			Ifname:             fields[0],
+			Mac:                fields[1],
+			Rssi:               times[0],
+			Snr:                times[1],
+			ClientInactive:     times[2],
+			RxPhy:              times[3],
+			RxMbytes:           times[4],
+			RxPrr:              times[5],
+			RxVhtMcsIndex:      times[6],
+			RxVhtMcsMhz:        times[7],
+			RxVhtNss:           times[8],
+			RxPackets:          times[9],
+			TxPhy:              times[10],
+			TxMbytes:           times[11],
+			TxPrr:              times[12],
+			TxVhtMcsIndex:      times[13],
+			TxVhtMcsMhz:        times[14],
+			TxVhtNss:           times[15],
+			TxPackets:          times[16],
+			ExpectedThroughput: times[17],
+			ChannelUtlization:  times[18],
 		})
 	}
 
