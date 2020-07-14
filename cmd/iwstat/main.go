@@ -21,8 +21,8 @@ func main() {
 	}
 
 	for _, s := range stats {
-		fmt.Printf("%4s rssi:%6d\n, snr: %6d/n, clientInacrive: %6d/n, rxPhy: %6d/n",
-			s.Mac, s.Rssi, s.Snr, s.ClientInactive, s.RxPhy)
+		fmt.Printf("%4s, %4s, rssi:%d, snr: %d, clientInacrive: %d, rxPhy: %d, rxMbytes: %d, rxPrr: %d, rxPackets: %d, txPhy: %d, tx_Mbytes: %d, txPrr: %d, txpackets: %d, expectedThroughput: %d\n",
+			s.Ifname, s.Mac, s.Rssi, s.Snr, s.ClientInactive, s.RxPhy, s.RxMbytes, s.RxPrr, s.RxPackets, s.TxPhy, s.TxMbytes, s.TxPrr, s.TxPackets, s.ExpectedThroughput)
 	}
 
 }
