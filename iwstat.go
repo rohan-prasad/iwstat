@@ -58,8 +58,27 @@ func Scan(r io.Reader) ([]IWStat, error) {
 		}
 
 		stats = append(stats, IWStat{
-			MAC:  fields[0],
-			RSSI: times[0],
+			ifname:             fields[0],
+			mac:                fields[1],
+			rssi:               times[0],
+			snr:                times[1],
+			clientInactive:     times[2],
+			rxPhy:              times[3],
+			rxMbytes:           times[4],
+			rxPrr:              times[5],
+			rxVhtMcsIndex:      times[6],
+			rxVhtMcsMhz:        times[7],
+			rxVhtNss:           times[8],
+			rxPackets:          times[9],
+			txPhy:              times[10],
+			txMbytes:           times[11],
+			txPrr:              times[12],
+			txVhtMcsIndex:      times[13],
+			txVhtMcsMhz:        times[14],
+			txVhtNss:           times[15],
+			txPackets:          times[16],
+			expectedThroughput: times[17],
+			channelUtlization:  times[18],
 		})
 	}
 
