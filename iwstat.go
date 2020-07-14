@@ -30,11 +30,7 @@ func Scan(r io.Reader) ([]IWStat, error) {
 			continue
 		}
 		var times [19]int
-<<<<<<< HEAD
 		for i, idx := range []int{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
-=======
-		for i, idx := range []int{3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
->>>>>>> 05e8496fe06ffe92b6ccc467de5a3f599a490c7f
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
 				return nil, err
