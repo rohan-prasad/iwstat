@@ -24,7 +24,7 @@ func Scan(r io.Reader) ([]IWStat, error) {
 	var stats []IWStat
 	for s.Scan() {
 
-		const nFields = 28
+		const nFields = 21
 		fields := strings.Fields(string(s.Bytes()))
 		if len(fields) != nFields {
 			continue
