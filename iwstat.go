@@ -10,27 +10,9 @@ import (
 
 //IWStat statistics of associated clients
 type IWStat struct {
-	Ifname             string
-	Mac                string
-	Rssi               int
-	Snr                int
-	ClientInactive     int
-	RxPhy              int
-	RxMbytes           int
-	RxPrr              int
-	RxVhtMcsIndex      int
-	RxVhtMcsMhz        int
-	RxVhtNss           int
-	RxPackets          int
-	TxPhy              int
-	TxMbytes           int
-	TxPrr              int
-	TxVhtMcsIndex      int
-	TxVhtMcsMhz        int
-	TxVhtNss           int
-	TxPackets          int
-	ExpectedThroughput int
-	ChannelUtlization  int
+	Ifname, Mac string
+
+	Rssi, Snr, ClientInactive, RxPhy, RxMbytes, RxPrr, RxVhtMcsIndex, RxVhtMcsMhz, RxVhtNss, RxPackets, TxPhy, TxMbytes, TxPrr, TxVhtMcsIndex, TxVhtMcsMhz, TxVhtNss, TxPackets, ExpectedThroughput, ChannelUtlization int
 }
 
 //Scan reads and parses iwinfo
@@ -42,13 +24,13 @@ func Scan(r io.Reader) ([]IWStat, error) {
 	var stats []IWStat
 	for s.Scan() {
 
-		const nFields = 20
+		const nFields = 21
 		fields := strings.Fields(string(s.Bytes()))
 		if len(fields) != nFields {
 			continue
 		}
-		var times [20]int
-		for i, idx := range []int{1: 20} {
+		var times [21]int
+		for i, idx := range []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
 				return nil, err
