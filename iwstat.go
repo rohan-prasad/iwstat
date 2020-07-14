@@ -29,8 +29,8 @@ func Scan(r io.Reader) ([]IWStat, error) {
 		if len(fields) != nFields {
 			continue
 		}
-		var times [21]int
-		for i, idx := range []int{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
+		var times [19]int
+		for i, idx := range []int{3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
 				return nil, err
