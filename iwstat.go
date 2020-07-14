@@ -24,12 +24,12 @@ func Scan(r io.Reader) ([]IWStat, error) {
 	var stats []IWStat
 	for s.Scan() {
 
-		const nFields = 21
+		const nFields = 28
 		fields := strings.Fields(string(s.Bytes()))
 		if len(fields) != nFields {
 			continue
 		}
-		var times [21]int
+		var times [19]int
 		for i, idx := range []int{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} {
 			v, err := strconv.Atoi(fields[idx])
 			if err != nil {
