@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	f, err := os.Open("/home/rohan/iwstat")
+	f, err := os.Open("/tmp/iwstat")
 	if err != nil {
-		log.Fatalf("Failed to open /home/rohan/iwstat: %v", err)
+		log.Fatalf("Failed to open /tmp/iwstat: %v", err)
 	}
 	defer f.Close()
 
@@ -21,8 +21,8 @@ func main() {
 	}
 
 	for _, s := range stats {
-		fmt.Printf("%4s RSSI:%6d\n",
-			s.Mac, s.Rssi)
+		fmt.Printf("%4s rssi:%6d\n, snr: %6d/n, clientInacrive: %6d/n, rxPhy: %6d/n",
+			s.Mac, s.Rssi, s.Snr, s.ClientInactive, s.RxPhy)
 	}
 
 }
