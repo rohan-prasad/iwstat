@@ -12,7 +12,7 @@ import (
 type IWStat struct {
 	Ifname, Mac string
 
-	Rssi, Snr, ClientInactive, RxPhy, RxMbytes, RxPrr, RxVhtMcsIndex, RxVhtMcsMhz, RxVhtNss, RxPackets, TxPhy, TxMbytes, TxPrr, TxVhtMcsIndex, TxVhtMcsMhz, TxVhtNss, TxPackets, ExpectedThroughput, ChannelUtlization int
+	Rssi, Snr, ClientInactive, RxPhy, RxMbytes, RxPrr, RxVhtMcsIndex, RxVhtMcsMhz, RxVhtNss, RxPackets, TxPhy, TxMbytes, TxPrr, TxVhtMcsIndex, TxVhtMcsMhz, TxVhtNss, TxPackets, ExpectedThroughput, ChannelUtlization float64
 }
 
 //Scan reads and parses iwinfo
@@ -29,9 +29,9 @@ func Scan(r io.Reader) ([]IWStat, error) {
 		if len(fields) != nFields {
 			continue
 		}
-		var times [21]int
-		for i, idx := range []int64{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20} {
-			v, err := strconv.Atoi(fields[idx])
+		var times [21]float64
+		for i, idx := range []int{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20} {
+			v, err := strconv.ParseFloat(fields[idx], 64)
 			if err != nil {
 				return nil, err
 
